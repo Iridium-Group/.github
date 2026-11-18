@@ -1,0 +1,16 @@
+{
+  // Shared lint rules for the Markdown in this repository.
+  "config": {
+    "default": true,
+    // Prose is wrapped by the editor, not by hand.
+    "MD013": false,
+    // The org profile and README headers use centered HTML images.
+    "MD033": false,
+    // The profile page and templates open with HTML or front matter.
+    "MD041": false,
+    // Contributor Covenant uses bare URLs in its text.
+    "MD034": false
+  },
+  "globs": ["**/*.md"],
+  "ignores": ["node_modules/**"]
+}

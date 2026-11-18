@@ -1,0 +1,7 @@
+{
+  "name": "Iridium Node.js CI",
+  "description": "The standard Iridium Group CI for Node.js and TypeScript projects: format check, typecheck, tests, and build on Node.js 22 and 24.",
+  "iconName": "iridium",
+  "categories": ["JavaScript", "TypeScript", "Node"],
+  "filePatterns": ["package.json$"]
+}

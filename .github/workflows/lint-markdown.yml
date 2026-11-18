@@ -1,0 +1,35 @@
+name: Lint Markdown
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  markdownlint:
+    name: markdownlint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DavidAnson/markdownlint-cli2-action@v20
+
+  links:
+    name: Link check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          fail: true
+          # Iridium Group repositories and Pages sites may not be published yet,
+          # so links to them are skipped. All other external links are checked.
+          args: >-
+            --no-progress
+            --max-retries 3
+            --accept 200,429
+            --exclude '^https://(github\.com/(orgs/)?Iridium-Group|raw\.githubusercontent\.com/Iridium-Group|iridium-group\.github\.io)'
+            './**/*.md'
